@@ -20,20 +20,22 @@ function App() {
     }
     return () => clearInterval(interval);
   }, [running]);
-return(
-  <>
-  <Head />
-  <Time time = {time} />
-  
-  <div>
-    {running ? (    <button onClick={()=>{setRunning(false)}}>stop</button>
-) : (    <button onClick={()=>{setRunning(true)}}>start</button>
-)
-    }
-    <button onClick={()=>{setTime(0)}}>reset</button>
-  </div>
-  </>
-);
-}
+    return(
+      <div className="App">
+        <Head />
+        <Time time={time} />
+        
+        <div className="controls">
+          {running ? (
+            <button onClick={() => setRunning(false)}>Stop</button>
+          ) : (
+            <button onClick={() => setRunning(true)}>Start</button>
+          )}
+          <button onClick={() => setTime(0)}>Reset</button>
+        </div>
+      </div>
+    );
+  }
+
 
 export default App
